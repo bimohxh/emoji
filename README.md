@@ -1,4 +1,5 @@
-# 关于
+# 关于 
+![demo](https://github.com/awesomes-cn/emoji/blob/master/images/demo.png?raw=true)
 
 该插件是对 emoji 表情包进行的一个封装，能够很好地运用到我们的项目中去，具有如下特点：
 
