@@ -15,27 +15,27 @@
 # 使用方法
 
 1、引入 jquery 文件，这里咱们可以直接引用百度的cdn
-```
+``` xml
 <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
 ```
 2、引入underscore.js 文件，该文件是提供集合的处理
-```
+``` xml
 <script type="text/javascript" src="js/underscore-min.js"></script>
 ```
 3、选择性引入 editor.js 文件。该文件提供了一个文本框插入文本的方法，仅用于需要自己写编辑器插入表情的情况。
-```
+``` xml
 <script type="text/javascript" src="js/editor.js"></script>
 ```
 4、引入改插件的主js文件
-```
+``` xml
 <script type="text/javascript" src="js/emojis.js"></script>
 ```
 5、引入 css 文件，该文件定义了表情选择器的整个样式，当然也可以自己改写其中的某些样式。
-```
+``` xml
 <link rel="stylesheet" type="text/css" href="css/emoji.css">
 ```
 6、指定一个html标签容器供容纳表情
-```
+``` xml
 <div id="emoji" class="emoji-container">
     <img  src="emoji/unicode/1f604.png" class="emoji-tbtn">
 </div>
@@ -43,7 +43,7 @@
 该容器包含了一个div和内部的一个img标签。注意：div必须指定ID，默认给了一个 `emoji-container` 的样式，该样式主要定义了一个 position:relative。保证整个布局不会乱。里面的 img 标签实际上是选择表情的图标，注意里面有个 `emoji-tbtn` 的class。
 
 7、初始化插件
-```
+``` xml
 $('#emoji1').emoji({
   //- 参数列表
 });
@@ -53,7 +53,7 @@ $('#emoji1').emoji({
 ### 1、data
 
 表情数据，是一个json数组格式如下：
-```
+``` javascript
 data: [
   {
     "typ":"EmojiCategory-People",
@@ -83,7 +83,7 @@ data: [
 ###  3、category
 
 要显示的表情分类。默认的完整分类为：
-```
+``` javascript
 category: ['EmojiCategory-People','EmojiCategory-Nature','EmojiCategory-Objects','EmojiCategory-Places','EmojiCategory-Symbols']
 ```
 可以根据自己的需要来增加或删除分类。
@@ -101,7 +101,7 @@ category: ['EmojiCategory-People','EmojiCategory-Nature','EmojiCategory-Objects'
 ###  1、insertAfter
 
 这是该插件唯一的事件，表示点击每个表情图片发生的事件。例如我们要将表情插入到文本框里面去，我们可以这样写。
-```
+``` javascript
 $(function(){
   var em = $('#emoji').emoji({
      insertAfter: function(item){
@@ -141,7 +141,7 @@ $(function(){
 ###  更新
 
 原插件中的效果是，页面初始化后默认加载第一个分类的所有图片，如果你觉得这会带来额外的带宽，可以选择在点击插入表情图标后才初始化整个插件，而后才加载图片。那么你可以将 emojis.js 中的：
-```
+``` javascript
 return this.each(function(){
       render_nav(this,options)
       render_emoji(this,options)
@@ -150,7 +150,7 @@ return this.each(function(){
     })
 ```
 修改成
-```
+``` javascript
 return this.each(function(){
   var obj = this
   $(this).find('.emoji-tbtn').one('click',function(){
