@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/emoji.css">
+  </head>
+  <body>
+    <div>
+      <h1>插入表情标识</h1>
+      <textarea id="area1" class='area'></textarea>
+      <div id="emoji1" class="emoji-container">
+        <img alt="smile" src="emoji/unicode/1f604.png" class="emoji-tbtn">
+      </div>
+
+      <h1>插入表情图片</h1>
+      <div id="area2"  contentEditable='true' class='area'></div>
+      <div id="emoji2"  class="emoji-container">
+        <img alt="smile" src="emoji/unicode/1f604.png" class="emoji-tbtn">
+      </div>
+
+      <h1>部分分类</h1>
+      <div id="emoji4"  class="emoji-container">
+        <img alt="smile" src="emoji/unicode/1f604.png" class="emoji-tbtn">
+      </div>
+
+      <h1>方法展示</h1>
+      <button id="open">弹出</button>
+      <button id="close">关闭</button>
+
+      <div id="emoji3"  class="emoji-container">
+        <img alt="smile" src="emoji/unicode/1f604.png" class="emoji-tbtn">
+      </div>
+      
+
+    </div>
+    
+    <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/editor.js"></script>
+    <script type="text/javascript" src="js/emojis.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var em1 = $('#emoji1').emoji({
+          insertAfter: function(item){
+            $('#area1').insertContent('[:'+item.name+':]')
+          }
+        });
+
+        var em2 = $('#emoji2').emoji({
+          trigger: 'mouseover',
+          insertAfter: function(item){
+            $('#area2').html($('#area2').html()+"<img src='"+item.src+"' class='emoji-img' />")
+          }
+        });
+
+        var em4 = $('#emoji4').emoji({
+          category: ['EmojiCategory-People','EmojiCategory-Nature'],
+        });
+
+
+        var em3 = $('#emoji3').emoji();
+        $('#open').click(function(){
+          em3.show()
+          return false;
+        })
+        $('#close').click(function(){
+          em3.hide()
+          return false;
+        })
+      })
+    </script>
+  </body>
+</html> 
+    
+
+
